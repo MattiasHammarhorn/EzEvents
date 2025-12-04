@@ -1,2 +1,2 @@
 # EzEvents
-Test for using GitHu Workflows and Express.js
+Test for using GitHub Workflows and Express.js
