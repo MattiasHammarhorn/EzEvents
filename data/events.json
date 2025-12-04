@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "title": "Title 1",
+        "category": "Education",
+        "startTime": "2025-11-15T12:00",
+        "endTime": "2025-11-15T19:00",
+        "location": "Location 1",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+        "imgUrl": "img/pexels-wendywei-1190297.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Title 2",
+        "category": "Festivals",
+        "startTime": "2025-11-17T10:00",
+        "endTime": "2025-11-21T16:00",
+        "location": "Location 2",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+        "imgUrl": "img/pexels-wendywei-1190297.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Title 3",
+        "category": "Food & drinks",
+        "startTime": "2025-11-22T19:00",
+        "endTime": "2025-11-22T22:00",
+        "location": "Location 3",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+        "imgUrl": "img/pexels-wendywei-1190297.jpg"
+    }
+]
