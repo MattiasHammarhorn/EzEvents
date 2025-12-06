@@ -1,0 +1,23 @@
+{
+  "name": "ezevents",
+  "version": "1.0.0",
+  "description": "Test for using Github Workflows and Express.js",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MattiasHammarhorn/EzEvents.git"
+  },
+  "author": "MattiasHammarhorn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MattiasHammarhorn/EzEvents/issues"
+  },
+  "homepage": "https://github.com/MattiasHammarhorn/EzEvents#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
