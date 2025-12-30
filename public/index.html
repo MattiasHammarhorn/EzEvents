@@ -4,33 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EzEvents - Easy Eventgoing near you!</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        #eventList {
-            display: flex;
-        }
-
-        .eventCard {
-            max-width: 300px;
-            height: 450px;
-            margin: 15px 30px 0 0;
-            padding: 10px;
-            box-shadow: 5px 5px 10px lightgray;
-        }
-
-        .eventCard img {
-            width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div>
         <h1>EzEvents - Easy Eventgoing near you!</h1>
     </div>
     
+    <form id="eventForm">
+        <div class="formControl">
+            <label for="eventTitle" class="formLabel">Title</label>
+            <input id="eventTitle" name="eventTitle" type="text" class="formField" />
+            <p id="titleError" class="formError"></p>
+        </div>
+        <div class="formControl">
+            <label for="eventDescription" class="formLabel">Description</label>
+            <input id="eventDescription" name="eventDescription" type="textarea" class="formField" />
+            <p id="descriptionError" class="formError"></p>
+        </div>
+        <div class="formControl">
+            <label for="eventCategory" class="formLabel">Category</label>
+            <input id="eventCategory" name="eventCategory" type="text" class="formField" />
+            <p id="categoryError" class="formError"></p>
+        </div>
+        <div class="formControl">
+            <label for="eventLocation" class="formLabel">Location</label>
+            <input id="eventLocation" name="eventLocation" type="text" class="formField" />
+            <p id="locationError" class="formError"></p>
+        </div>
+        <div class="formControl">
+            <label for="eventStartTime" class="formLabel">Start</label>
+            <input id="eventStartTime" name="eventStartTime" type="datetime-local" class="formField" />
+            <p id="startTimeError" class="formError"></p>
+        </div>
+        <div class="formControl">
+            <label for="eventEndTime" class="formLabel">End</label>
+            <input id="eventEndTime" name="eventEndTime" type="datetime-local" class="formField" />
+            <p id="endTimeError" class="formError"></p>
+        </div>
+        <div class="formControl">
+            <label for="eventImage" class="formLabel">Image</label>
+            <input id="eventImage" name="eventImage" type="image" class="formField" />
+            <p id="imageError" class="formError"></p>
+        </div>
+        <input type="submit" class="formSubmit" />
+    </form>
+
     <div id="eventList">
         
     </div>

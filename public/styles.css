@@ -1,0 +1,50 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#eventList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.eventCard {
+    width: 300px;
+    height: 450px;
+    margin: 20px;
+    padding: 10px;
+    box-shadow: 5px 5px 10px lightgray;
+}
+
+.eventCard img {
+    width: 100%;
+}
+
+.formControl {
+    display: block;
+    width: 300px;
+    margin-bottom: 8px;
+}
+
+.formLabel {
+    display: block;
+    width: 100%;
+}
+
+.formField {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.formSubmit {
+    padding: 8px;
+    margin-top: 7px;
+    background-color: green;
+    color: white;
+    border-radius: 4px;
+}
+
+.formError {
+    color: red;
+}
