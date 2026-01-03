@@ -121,6 +121,10 @@ function validateForm() {
         let endTimeError = document.getElementById('endTimeError');
         endTimeError.innerHTML = 'End Time is required.';
         isValid = false;
+    } else if (formData.get('eventStartTime') != '' && formData.get('eventEndTime') < formData.get('eventStartTime')) {
+        let endTimeError = document.getElementById('endTimeError');
+        endTimeError.innerHTML = 'End Time cannot be earlier than Start Time.';
+        isValid = false;
     } else { endTimeError.innerHTML = ''; }
 
     return isValid;
