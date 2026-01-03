@@ -27,17 +27,18 @@ app.get(url, (req, res) => {
 app.post(url, (req, res) => {
     try {
         const eventToAdd = {
-            eventTitle: req.body.eventTitle,
-            eventDescription: req.body.eventDescription,
-            eventCategory: req.body.eventCategory,
-            eventLocation: req.body.eventLocation,
-            eventStartTime: req.body.eventStartTime,
-            eventEndTime: req.body.eventEndTime
+            title: req.body.eventTitle,
+            description: req.body.eventDescription,
+            category: req.body.eventCategory,
+            location: req.body.eventLocation,
+            startTime: req.body.eventStartTime,
+            endTime: req.body.eventEndTime
         }
         var result = createEvent(eventToAdd);
         res.status(201).send(result);
     } catch (Error) {
         console.error(`Error fetching: ${url}, ${Error}`);
+        res.status(500).send(`Error fetching: ${Error.stack}`);
     }
 });
 
