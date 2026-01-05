@@ -95,7 +95,7 @@ function validateForm() {
     } else { descriptionError.innerHTML = ''; }
 
     if (formData.get('eventCategory') == '') {
-        categoryError.innerHTML = 'Category is required';
+        categoryError.innerHTML = 'Category is required.';
         isValid = false;
     } else if (formData.get('eventCategory').length < 2 || formData.get('eventCategory').length > 50) {
         categoryError.innerHTML = 'Category must be between 2-50 letters.';
