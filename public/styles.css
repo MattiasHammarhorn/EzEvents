@@ -5,14 +5,19 @@ body {
 #eventList {
     display: flex;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
 .eventCard {
     width: 300px;
     height: 450px;
-    margin: 20px;
     padding: 10px;
     box-shadow: 5px 5px 10px lightgray;
+}
+
+.eventCardLink {
+    color: inherit;
+    text-decoration: inherit;
 }
 
 .eventCard img {
@@ -47,4 +52,10 @@ body {
 
 .formError {
     color: red;
+}
+
+.eventContent {
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
 }

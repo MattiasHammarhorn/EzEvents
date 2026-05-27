@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EzEvents - Easy Eventgoing near you!</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <article class="eventContent">
+        <h1 id="eventTitle">Title</h1>
+        <div class="eventImageWrapper">
+            <img id="eventImage" src="../img/no_img.jpg">
+        </div>
+        <div class="eventInformation">
+            <div id="eventStartDate">January 6th 10:00</div>
+            <div id="eventEndDate">January 9th 16:00</div>
+            <div id="eventLocation">Location 1</div>
+        </div>
+        <div id="eventDescription">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque facilisis id elit vitae accumsan. Nulla rutrum tempor enim ac pulvinar. Nam porttitor, libero quis venenatis porta, quam justo fringilla dolor, eu euismod magna magna ac nulla. Vestibulum eget tristique felis, sed consectetur lectus. Quisque commodo magna ullamcorper felis sollicitudin molestie. Curabitur tempor justo libero, non tincidunt massa placerat et. Nunc a ipsum lectus. Vestibulum vel tellus dignissim, feugiat urna nec, volutpat quam. Donec risus nibh, consectetur a consectetur ac, sagittis sed odio. Etiam nulla mauris, convallis vitae ligula sit amet, tincidunt dignissim risus. Curabitur leo sapien, tincidunt gravida tincidunt consectetur, pretium sed ligula. Integer id dui eu neque malesuada posuere. Sed ac pellentesque turpis, sed pretium ligula. Integer in mi ac turpis feugiat feugiat. Pellentesque sagittis mi ut lorem aliquam tincidunt. Etiam laoreet leo eu erat tempus pharetra.
+
+Nunc faucibus commodo sagittis. Vivamus dignissim hendrerit metus, dictum viverra sapien volutpat et. Phasellus consectetur vel nunc ut sodales. Praesent a eros in diam commodo malesuada. Suspendisse mollis eleifend nisl quis malesuada. Donec id orci metus. Curabitur vitae lorem ultricies, pellentesque ante sed, eleifend ante. Quisque scelerisque id dui nec pulvinar. Pellentesque urna quam, tincidunt in libero nec, tincidunt faucibus ligula. Nullam vulputate tortor vitae dui molestie, at tempor augue venenatis. Praesent luctus odio id ultrices vestibulum. Donec pharetra sagittis nisi in convallis. Phasellus mattis aliquam odio dignissim ornare.
+
+Ut eu faucibus velit, ac tristique augue. Suspendisse dignissim nec dui ac consequat. Suspendisse fringilla quis mauris convallis finibus. Morbi nec ipsum sit amet enim tincidunt ultricies. Proin efficitur cursus leo, at mollis lacus rutrum ut. Nam nibh neque, gravida vitae consectetur finibus, vestibulum eu mi. Cras eu pulvinar lorem. Pellentesque scelerisque ligula lectus, nec suscipit mauris ultrices at. Nunc venenatis nec ipsum vitae convallis. Proin placerat pulvinar orci vitae semper. Proin id felis elit. Sed finibus efficitur aliquam. Sed feugiat nisi at lectus sagittis molestie. Proin nec ex lacus.
+
+Ut ullamcorper iaculis massa, in facilisis erat convallis vel. Aenean in placerat ante. Aliquam dui tellus, dignissim quis mattis vitae, efficitur quis dui. Donec convallis vehicula congue. Mauris consectetur pretium sapien et mollis. Morbi in malesuada nisl. Vivamus nec magna dictum, posuere augue sit amet, malesuada arcu. Integer a dolor laoreet, fermentum elit quis, bibendum enim. Duis id nunc ac mauris varius laoreet. Vivamus id molestie orci. Donec facilisis massa non aliquet elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+Fusce vel velit sed sem consequat ullamcorper sed vel augue. Sed semper vel est eu iaculis. Nulla facilisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce id nunc eros. Fusce efficitur mollis sem, quis commodo est imperdiet in. Vivamus consequat scelerisque dolor, quis tincidunt sapien lacinia suscipit. Vestibulum non turpis aliquam, aliquam justo eu, iaculis lacus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras varius lacus lorem, nec sagittis tellus efficitur rhoncus. Nunc molestie commodo mi, sed consequat elit placerat vel. Pellentesque augue neque, dictum sed ipsum vel, ullamcorper dignissim mauris. Nullam malesuada felis non pretium dictum. Vestibulum magna nisi, feugiat in velit sit amet, scelerisque viverra tortor. Duis id turpis in urna tristique posuere dapibus ac eros.
+
+Mauris vulputate lectus et fringilla accumsan. Nulla a accumsan augue, id lacinia nunc. Praesent id vehicula metus. Suspendisse feugiat arcu a faucibus feugiat. Sed ipsum eros, eleifend in nulla sed, pretium viverra nisi. Fusce feugiat, tellus eu rutrum congue, nulla dolor rutrum justo, ac fringilla purus arcu sed magna. Pellentesque iaculis metus eget euismod condimentum. Duis imperdiet metus accumsan egestas commodo. Pellentesque quis dapibus urna. Vivamus sed tellus quis libero sollicitudin dapibus.
+        </div>
+    </article>
+
+    <script>
+        const eventTitle = document.getElementById('eventTitle');
+        const eventImage = document.getElementById('eventImage');
+        const eventContent = document.getElementById('eventContent');
+        const eventStartDate = document.getElementById('eventStartDate');
+        const eventEndDate = document.getElementById('eventEndDate');
+        const eventLocation = document.getElementById('eventLocation');
+        const eventDescription = document.getElementById('eventDescription');
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            await getEvent();
+        });
+
+        async function getEvent() {
+            try {
+                let url = window.location.href.split('/');
+                console.log(url);
+                let eventId = url[url.length - 1];
+                console.log(url);
+
+                const response = await fetch('http://localhost:3000/api/events/' + eventId);
+                if (!response.ok)
+                    console.log();
+                
+                const event = await response.json();
+                populateEventDetails(event);
+            } catch (Error) {
+                console.error(Error);
+            }
+        }
+
+        function populateEventDetails(event) {
+            eventTitle.innerHTML = event.title;
+            eventStartDate.innerHTML = new Date(event.startDate).toDateString();
+            eventEndDate.innerHTML = new Date(event.endDate).toDateString();
+            eventLocation.innerHTML = event.location;
+            eventDescription.innerHTML = event.description;
+            eventImage.source =  event.imgUrl ? event.imgUrl : '../img/no_img.jpg';
+        }
+    </script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 import express from 'express';
 import { fileURLToPath } from 'url';
 import path from 'path';
-import { getEvents, createEvent } from './src/eventService.js';
+import { getEvents, getEventById, createEvent } from './src/eventService.js';
 
 const app = express();
 const port = 3000;
@@ -12,17 +12,37 @@ const __dirPath = path.dirname(__fileName);
 app.use(express.static(path.join(__dirPath, 'public')));
 app.use(express.json());
 
-const url = '/api/events/';
+const url = '/api/events';
 
 app.get(url, (req, res) => {
     try {
         const events = getEvents();
-        console.log("Gettin da events!")
         res.status(200).send(events);
     } catch (Error) {
         console.error(`Error fetching: ${url}, ${Error}`);
     }
-})
+});
+
+app.get(url + '/:id', (req, res) => {
+    try {
+        const event = getEventById(req.params.id);
+
+        if (event == undefined)
+            return res.sendStatus(400);
+        
+        res.status(200).send(event);
+    } catch (Error) {
+        console.error(`Error fetching: ${url}, ${Error}`);
+    }
+});
+
+app.get('/details/:id', (req, res) => {
+    try {
+        res.sendFile(path.join(__dirPath, 'public', 'details.html'));
+    } catch (Error) {
+        console.error(`Error fetching: ${url}, ${Error}`);
+    }
+});
 
 app.post(url, (req, res) => {
     try {

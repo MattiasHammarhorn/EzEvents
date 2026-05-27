@@ -20,13 +20,15 @@ function populateUserList(events) {
     for (let i = 0; i < events.length; i++) {
         let eventImgUrl = events[i].imgUrl ? events[i].imgUrl : 'img/no_img.jpg' ;
         eventListDiv.innerHTML += 
-            `<div class='eventCard'>
-                <img src='${eventImgUrl}'>
-                <h2>${events[i].title}</h2>
-                <p>${new Date(events[i].startTime).toDateString()} - ${new Date(events[i].endTime).toDateString()}</p>
-                <p>&#8962; ${events[i].location}</p>
-                <p>${events[i].description}</p>
-            </div>`;
+            `<a class="eventCardLink" href='/details/${events[i].id}'>
+                <div class='eventCard'>
+                    <img src='${eventImgUrl}'>
+                    <h2>${events[i].title}</h2>
+                    <p>${new Date(events[i].startTime).toDateString()} - ${new Date(events[i].endTime).toDateString()}</p>
+                    <p>&#8962; ${events[i].location}</p>
+                    <p>${events[i].description}</p>
+                </div>
+            </a>`;
     }
 }
 

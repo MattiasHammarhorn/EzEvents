@@ -10,6 +10,12 @@ export function getEvents() {
     return JSON.parse(events);
 }
 
+export function getEventById(id) {
+    const events = JSON.parse(fs.readFileSync(path.join(__dirPath, '../data/events.json'), 'utf-8'));
+    const event = events.find((e) => e.id == id);
+    return event;
+}
+
 export function createEvent(eventToAdd) {
     const events = fs.readFileSync(path.join(__dirPath, '../data/events.json'), 'utf-8');
     let eventsJSON = JSON.parse(events);
